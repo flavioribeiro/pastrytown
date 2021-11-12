@@ -1,12 +1,12 @@
 import React from "react";
 
-import TodoList from "./components/TodoList";
+import BeerList from "./components/BeerList";
 import "./styles.css";
 
 export default function App() {
   return (
     <div className="App">
-      <TodoList />
+      <BeerList />
     </div>
   );
 }

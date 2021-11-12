@@ -14,9 +14,13 @@ const TodoList = () => {
 
   const updateFilteredTodos = newSearchText => {
     let searchTextLower = newSearchText.toLowerCase();
-    const filtered = todosData.filter((item) =>
-      item.title.toLowerCase().includes(searchTextLower)
-    );
+    const filtered = todosData.filter((item) => {
+      return (
+        item.title.toLowerCase().includes(searchTextLower) ||
+        item.description.toLowerCase().includes(searchTextLower) ||
+        item.brewery.toLowerCase().includes(searchTextLower)
+      );
+    });
     setFilteredTodos(filtered);
   }
 
