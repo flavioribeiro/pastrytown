@@ -4,9 +4,9 @@ import Heart from "react-heart"
 import "../styles.css";
 
 const BeerItem = (props) => {
-  const [isComplete, setIsComplete] = useState(props.item.completeStatus);
-  const [isFavorite, setIsFavorite] = useState(props.item.favoriteStatus);
-  const [rating, setRating] = useState(props.item.ratingStatus);
+  const [isComplete, setIsComplete] = useState(props.item.cSt);
+  const [isFavorite, setIsFavorite] = useState(props.item.fSt);
+  const [rating, setRating] = useState(props.item.r);
 
   const handleCompleteChange = () => {
     props.item.completeStatus = !props.item.completeStatus;
@@ -19,7 +19,7 @@ const BeerItem = (props) => {
   }
 
   const handleRatingChange = (newRating) => {
-    props.item.ratingStatus = newRating;
+    props.item.r = newRating;
     setRating(newRating);
   }
 
@@ -30,7 +30,7 @@ const BeerItem = (props) => {
         {props.item.title}
       </p>
       <p>
-        {props.item.description}
+        {props.item.desc}
       </p>
       <ReactStars count={5} onChange={handleRatingChange} size={24} activeColor="#ffd700" />
       <Heart isActive={isFavorite} onClick={handleFavoriteChange} className="heart" />

@@ -5,6 +5,22 @@ body {
   .heart {
     width: 5%;
   }
+
+  .heart-filter {
+    width: 5%;
+  }
+
+  .top-menu {
+    float: left;
+  }
+
+  .logo {
+    width: 20%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
   
   .todo-list {
     background-color: white;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Heart from "react-heart"
-import todosData from "../beersData";
+import todosData from "../fullBeersList";
 import BeerItem from "../components/BeerItem";
 
 const BeerList = () => {
@@ -28,7 +28,7 @@ const BeerList = () => {
     const filtered = todosData.filter((item) => {
       return (
         (item.title.toLowerCase().includes(searchTextLower) ||
-        item.description.toLowerCase().includes(searchTextLower) ||
+        item.desc.toLowerCase().includes(searchTextLower) ||
         item.brewery.toLowerCase().includes(searchTextLower)) &&
         item.favoriteStatus == listingFavorites
       );
@@ -42,14 +42,16 @@ const BeerList = () => {
 
   return (
     <div className="todo-list">
-      <input
-        className="todo-search"
-        type="text"
-        value={searchText}
-        placeholder="Search"
-        onChange={searchTextChanged}
-      />
-      <Heart isActive={listingFavorites} onClick={handleFavoriteChange} className="heart" />
+      <div className='top-menu'>
+        <input
+          className="todo-search"
+          type="text"
+          value={searchText}
+          placeholder="Search"
+          onChange={searchTextChanged}
+        />
+        <Heart isActive={listingFavorites} onClick={handleFavoriteChange} className="heart-filter" />
+      </div>
       {todoItems}
     </div>
   );
