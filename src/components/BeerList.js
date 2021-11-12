@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import Heart from "react-heart"
 import todosData from "../beersData";
 import BeerItem from "../components/BeerItem";
 
-const TodoList = () => {
+const BeerList = () => {
   const [filteredTodos, setFilteredTodos] = useState(todosData);
-  const [todo, setTodo] = useState("");
+  const [listingFavorites, setListingFavorites] = useState(false);
   const [searchText, setSearchText] = useState("")
 
   const searchTextChanged = (event) => {
@@ -12,13 +13,24 @@ const TodoList = () => {
     updateFilteredTodos(event.target.value)
   };
 
+  const handleFavoriteChange = () => {
+    setListingFavorites(!listingFavorites);
+    const onlyFavorites = !listingFavorites;
+    if (onlyFavorites) {
+      setFilteredTodos(todosData.filter((item) => item.favoriteStatus == !listingFavorites));
+    } else {
+      setFilteredTodos(todosData);
+    }
+  }
+
   const updateFilteredTodos = newSearchText => {
     let searchTextLower = newSearchText.toLowerCase();
     const filtered = todosData.filter((item) => {
       return (
-        item.title.toLowerCase().includes(searchTextLower) ||
+        (item.title.toLowerCase().includes(searchTextLower) ||
         item.description.toLowerCase().includes(searchTextLower) ||
-        item.brewery.toLowerCase().includes(searchTextLower)
+        item.brewery.toLowerCase().includes(searchTextLower)) &&
+        item.favoriteStatus == listingFavorites
       );
     });
     setFilteredTodos(filtered);
@@ -37,9 +49,10 @@ const TodoList = () => {
         placeholder="Search"
         onChange={searchTextChanged}
       />
+      <Heart isActive={listingFavorites} onClick={handleFavoriteChange} className="heart" />
       {todoItems}
     </div>
   );
 };
 
-export default TodoList;
+export default BeerList;
