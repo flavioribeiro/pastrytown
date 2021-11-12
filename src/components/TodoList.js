@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import todosData from "../todosData";
-import TodoItem from "../components/TodoItem";
+import BeerItem from "../components/BeerItem";
 import shortid from "shortid";
 
 const TodoList = () => {
@@ -36,7 +36,7 @@ const TodoList = () => {
   };
 
   const todoItems = filteredTodos.map((item) => (
-    <TodoItem key={item.id} item={item} />
+    <BeerItem key={item.id} item={item} />
   ));
 
   return (

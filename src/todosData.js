@@ -1,23 +1,17 @@
 const todosData = [
     {
       id: "1",
-      description: "Code review",
-      completeStatus: false
+      description: "DDH Simcoe",
+      completeStatus: false,
+      favoriteStatus: false,
+      ratingStatus: 0,
     },
     {
       id: "2",
-      description: "Check in code",
-      completeStatus: false
+      description: "BA Stout",
+      completeStatus: false,
+      favoriteStatus: false,
+      ratingStatus: 0,
     },
-    {
-      id: "3",
-      description: "Merge code",
-      completeStatus: false
-    },
-    {
-      id: "4",
-      description: "Release code",
-      completeStatus: false
-    }
   ];
   export default todosData;
