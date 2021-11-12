@@ -26,12 +26,9 @@ const BeerItem = (props) => {
   return (
     <div className="todo-item">
       <input type="checkbox" checked={isComplete} onChange={handleCompleteChange} />
-      <p className={isComplete ? "completed-style" : null}>
-        {props.item.title}
-      </p>
-      <p>
-        {props.item.desc}
-      </p>
+      <p className={isComplete ? "completed-style" : null}>{props.item.brewery}</p>
+      <p className={isComplete ? "completed-style" : null}>{props.item.title}</p>
+      <p className={isComplete ? "completed-style" : null}>{props.item.desc}</p>
       <ReactStars count={5} onChange={handleRatingChange} size={24} activeColor="#ffd700" />
       <Heart isActive={isFavorite} onClick={handleFavoriteChange} className="heart" />
     </div>

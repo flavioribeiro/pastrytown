@@ -30,7 +30,7 @@ const BeerList = () => {
         (item.title.toLowerCase().includes(searchTextLower) ||
         item.desc.toLowerCase().includes(searchTextLower) ||
         item.brewery.toLowerCase().includes(searchTextLower)) &&
-        item.favoriteStatus == listingFavorites
+        item.fSt == listingFavorites
       );
     });
     setFilteredTodos(filtered);
@@ -51,6 +51,10 @@ const BeerList = () => {
           onChange={searchTextChanged}
         />
         <Heart isActive={listingFavorites} onClick={handleFavoriteChange} className="heart-filter" />
+        <div>
+          You have {filteredTodos.filter((item) => item.fSt).length} favorited beers.
+          You tasted {filteredTodos.filter((item) => item.cSt).length} already. {todosData.length} to go!
+        </div>
       </div>
       {todoItems}
     </div>
