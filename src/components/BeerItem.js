@@ -19,7 +19,8 @@ const BeerItem = (props) => {
   }
 
   const handleRatingChange = (newRating) => {
-    console.log(newRating);
+    props.item.ratingStatus = newRating;
+    setRating(newRating);
   }
 
   return (
@@ -29,7 +30,7 @@ const BeerItem = (props) => {
         {props.item.description}
       </p>
       <ReactStars count={5} onChange={handleRatingChange} size={24} activeColor="#ffd700" />
-      <Heart isActive={props.item.favoriteStatus} onClick={handleFavoriteChange} />
+      <Heart isActive={props.item.favoriteStatus} onClick={handleFavoriteChange} className="heart" />
     </div>
   );
 };

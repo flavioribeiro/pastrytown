@@ -1,6 +1,10 @@
 body {
     background-color: whitesmoke;
   }
+
+  .heart {
+    width: 5%;
+  }
   
   .todo-list {
     background-color: white;
