@@ -27,10 +27,13 @@ const BeerItem = (props) => {
     <div className="todo-item">
       <input type="checkbox" checked={isComplete} onChange={handleCompleteChange} />
       <p className={isComplete ? "completed-style" : null}>
+        {props.item.title}
+      </p>
+      <p>
         {props.item.description}
       </p>
       <ReactStars count={5} onChange={handleRatingChange} size={24} activeColor="#ffd700" />
-      <Heart isActive={props.item.favoriteStatus} onClick={handleFavoriteChange} className="heart" />
+      <Heart isActive={isFavorite} onClick={handleFavoriteChange} className="heart" />
     </div>
   );
 };

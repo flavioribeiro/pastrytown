@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import todosData from "../todosData";
+import todosData from "../beersData";
 import BeerItem from "../components/BeerItem";
-import shortid from "shortid";
 
 const TodoList = () => {
   const [filteredTodos, setFilteredTodos] = useState(todosData);
@@ -16,24 +15,10 @@ const TodoList = () => {
   const updateFilteredTodos = newSearchText => {
     let searchTextLower = newSearchText.toLowerCase();
     const filtered = todosData.filter((item) =>
-      item.description.toLowerCase().includes(searchTextLower)
+      item.title.toLowerCase().includes(searchTextLower)
     );
     setFilteredTodos(filtered);
   }
-
-  const todoChanged = (event) => {
-    setTodo(event.target.value);
-  };
-
-  const addTodo = () => {
-    todosData.unshift({
-      id: shortid.generate(),
-      description: todo,
-      completeStatus: false
-    })
-    updateFilteredTodos(searchText)
-    setTodo("");
-  };
 
   const todoItems = filteredTodos.map((item) => (
     <BeerItem key={item.id} item={item} />
@@ -48,18 +33,6 @@ const TodoList = () => {
         placeholder="Search"
         onChange={searchTextChanged}
       />
-      <div className="todo-add-container">
-        <input
-          className="todo-search"
-          type="text"
-          value={todo}
-          placeholder="Add todo"
-          onChange={todoChanged}
-        />
-        <button className="todo-add-button" onClick={addTodo}>
-          Add
-        </button>
-      </div>
       {todoItems}
     </div>
   );
