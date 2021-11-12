@@ -16,7 +16,7 @@ const TodoList = () => {
   const updateFilteredTodos = newSearchText => {
     let searchTextLower = newSearchText.toLowerCase();
     const filtered = todosData.filter((item) =>
-      item.description.toLowerCase().startsWith(searchTextLower)
+      item.description.toLowerCase().includes(searchTextLower)
     );
     setFilteredTodos(filtered);
   }
