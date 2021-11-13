@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/pastrytown/static/css/main.c4450cef.chunk.css",
+    "main.css": "/pastrytown/static/css/main.a4933b65.chunk.css",
     "main.js": "/pastrytown/static/js/main.d193e92f.chunk.js",
     "main.js.map": "/pastrytown/static/js/main.d193e92f.chunk.js.map",
     "runtime-main.js": "/pastrytown/static/js/runtime-main.49aaaa20.js",
@@ -8,14 +8,14 @@
     "static/js/2.5d5f46df.chunk.js": "/pastrytown/static/js/2.5d5f46df.chunk.js",
     "static/js/2.5d5f46df.chunk.js.map": "/pastrytown/static/js/2.5d5f46df.chunk.js.map",
     "index.html": "/pastrytown/index.html",
-    "static/css/main.c4450cef.chunk.css.map": "/pastrytown/static/css/main.c4450cef.chunk.css.map",
+    "static/css/main.a4933b65.chunk.css.map": "/pastrytown/static/css/main.a4933b65.chunk.css.map",
     "static/js/2.5d5f46df.chunk.js.LICENSE.txt": "/pastrytown/static/js/2.5d5f46df.chunk.js.LICENSE.txt",
     "static/media/logo.a5c7f0dc.png": "/pastrytown/static/media/logo.a5c7f0dc.png"
   },
   "entrypoints": [
     "static/js/runtime-main.49aaaa20.js",
     "static/js/2.5d5f46df.chunk.js",
-    "static/css/main.c4450cef.chunk.css",
+    "static/css/main.a4933b65.chunk.css",
     "static/js/main.d193e92f.chunk.js"
   ]
 }
