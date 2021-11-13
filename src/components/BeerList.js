@@ -35,7 +35,15 @@ const BeerList = () => {
         item.brewery.toLowerCase().includes(searchTextLower))
       );
     });
-    setFilteredTodos(filtered);
+    console.log("listing favorites? ", listingFavorites)
+    if (listingFavorites) {
+      setFilteredTodos(filtered.filter(item => {
+        return window.localStorage.getItem(item.id + 'isFavorite') == true ||
+        window.localStorage.getItem(item.id + 'isFavorite') == 'true'
+      }))
+    } else {
+      setFilteredTodos(filtered);
+    }
   }
 
   const beers = filteredTodos.map((item) => (
