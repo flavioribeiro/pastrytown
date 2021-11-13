@@ -17,7 +17,7 @@ const BeerList = () => {
     setListingFavorites(!listingFavorites);
     const onlyFavorites = !listingFavorites;
     if (onlyFavorites) {
-      setFilteredTodos(todosData.filter((item) => item.favoriteStatus == !listingFavorites));
+      setFilteredTodos(todosData.filter((item) => item.fSt == !listingFavorites));
     } else {
       setFilteredTodos(todosData);
     }
@@ -36,7 +36,7 @@ const BeerList = () => {
     setFilteredTodos(filtered);
   }
 
-  const todoItems = filteredTodos.map((item) => (
+  const beers = filteredTodos.map((item) => (
     <BeerItem key={item.id} item={item} />
   ));
 
@@ -50,13 +50,13 @@ const BeerList = () => {
           placeholder="Search"
           onChange={searchTextChanged}
         />
-        <Heart isActive={listingFavorites} onClick={handleFavoriteChange} className="heart-filter" />
+        Show Only my <Heart isActive={listingFavorites} onClick={handleFavoriteChange} className="heart-filter" /> beers.
         <div>
           You have {filteredTodos.filter((item) => item.fSt).length} favorited beers.
           You tasted {filteredTodos.filter((item) => item.cSt).length} already. {todosData.length} to go!
         </div>
       </div>
-      {todoItems}
+      {beers}
     </div>
   );
 };

@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import Heart from "react-heart"
+import useLocalStorage from 'react-use-localstorage';
 import "../styles.css";
 
 const BeerItem = (props) => {
-  const [isComplete, setIsComplete] = useState(props.item.cSt);
-  const [isFavorite, setIsFavorite] = useState(props.item.fSt);
-  const [rating, setRating] = useState(props.item.r);
+  const [isComplete, setIsComplete] = useLocalStorage(props.item.id + 'isComplete', props.item.cSt);
+  const [isFavorite, setIsFavorite] = useLocalStorage(props.item.id + 'isFavorite', props.item.fSt);
+  const [rating, setRating] = useLocalStorage(props.item.id + 'rating', props.item.r);
 
   const handleCompleteChange = () => {
-    props.item.completeStatus = !props.item.completeStatus;
-    setIsComplete(props.item.completeStatus);
+    props.item.cSt = !props.item.cSt;
+    setIsComplete(props.item.cSt);
   };
 
   const handleFavoriteChange = () => {
-    props.item.favoriteStatus = !props.item.favoriteStatus;
-    setIsFavorite(props.item.favoriteStatus);
+    props.item.fSt = !props.item.fSt;
+    setIsFavorite(props.item.fSt);
   }
 
   const handleRatingChange = (newRating) => {
@@ -25,11 +26,11 @@ const BeerItem = (props) => {
 
   return (
     <div className="todo-item">
-      <input type="checkbox" checked={isComplete} onChange={handleCompleteChange} />
-      <p className={isComplete ? "completed-style" : null}>{props.item.brewery}</p>
-      <p className={isComplete ? "completed-style" : null}>{props.item.title}</p>
-      <p className={isComplete ? "completed-style" : null}>{props.item.desc}</p>
-      <ReactStars count={5} onChange={handleRatingChange} size={24} activeColor="#ffd700" />
+      <input type="checkbox" checked={isComplete && isComplete == 'true'} onChange={handleCompleteChange} />
+      <p className={isComplete && isComplete == 'true' ? "completed-style" : null}>{props.item.brewery}</p>
+      <p className={isComplete && isComplete == 'true' ? "completed-style" : null}>{props.item.title}</p>
+      <p className={isComplete && isComplete == 'true' ? "completed-style" : null}>{props.item.desc}</p>
+      <ReactStars count={5} value={rating} onChange={handleRatingChange} size={24} activeColor="#ffd700" />
       <Heart isActive={isFavorite} onClick={handleFavoriteChange} className="heart" />
     </div>
   );
