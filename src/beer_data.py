@@ -9,6 +9,7 @@ for i, line in enumerate(content):
     line = line.replace('\n', '')
     if line.startswith('##'):
         brewery = line.replace('##', '').strip()
+        continue
     elif line.startswith('- [ ] '):
         beer = line.replace('- [ ] ', '').replace(')', '').strip()
         title, description = beer.split('(')
