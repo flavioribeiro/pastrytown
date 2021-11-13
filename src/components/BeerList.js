@@ -53,10 +53,6 @@ const BeerList = () => {
           onChange={searchTextChanged}
         />
         Show Only my <Heart isActive={listingFavorites} onClick={handleFavoriteChange} className="heart-filter" /> beers.
-        <div>
-          You have {filteredTodos.filter((item) => item.fSt).length} favorited beers.
-          You tasted {filteredTodos.filter((item) => item.cSt).length} already. {todosData.length} to go!
-        </div>
       </div>
       {beers}
     </div>

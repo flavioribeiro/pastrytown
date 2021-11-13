@@ -30,7 +30,7 @@ const BeerItem = (props) => {
       <p className={isComplete && isComplete == 'true' ? "completed-style" : null}>{props.item.brewery}</p>
       <p className={isComplete && isComplete == 'true' ? "completed-style" : null}>{props.item.title}</p>
       <p className={isComplete && isComplete == 'true' ? "completed-style" : null}>{props.item.desc}</p>
-      <ReactStars count={5} value={rating} onChange={handleRatingChange} size={24} activeColor="#ffd700" />
+      <ReactStars count={5} value={rating} onChange={handleRatingChange} size={12} activeColor="#ffd700" />
       <Heart isActive={isFavorite === 'true'} onClick={handleFavoriteChange} className="heart" />
     </div>
   );
