@@ -17,7 +17,10 @@ const BeerList = () => {
     setListingFavorites(!listingFavorites);
     const onlyFavorites = !listingFavorites;
     if (onlyFavorites) {
-      setFilteredTodos(todosData.filter((item) => item.fSt == !listingFavorites));
+      setFilteredTodos(todosData.filter((item) => { 
+        return item.fSt == onlyFavorites ||
+        window.localStorage.getItem(item.id + 'isFavorite') == onlyFavorites.toString()
+      }));
     } else {
       setFilteredTodos(todosData);
     }
@@ -29,8 +32,7 @@ const BeerList = () => {
       return (
         (item.title.toLowerCase().includes(searchTextLower) ||
         item.desc.toLowerCase().includes(searchTextLower) ||
-        item.brewery.toLowerCase().includes(searchTextLower)) &&
-        item.fSt == listingFavorites
+        item.brewery.toLowerCase().includes(searchTextLower))
       );
     });
     setFilteredTodos(filtered);

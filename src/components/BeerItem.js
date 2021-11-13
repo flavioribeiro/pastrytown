@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import ReactStars from "react-rating-stars-component";
 import Heart from "react-heart"
 import useLocalStorage from 'react-use-localstorage';
@@ -31,7 +31,7 @@ const BeerItem = (props) => {
       <p className={isComplete && isComplete == 'true' ? "completed-style" : null}>{props.item.title}</p>
       <p className={isComplete && isComplete == 'true' ? "completed-style" : null}>{props.item.desc}</p>
       <ReactStars count={5} value={rating} onChange={handleRatingChange} size={24} activeColor="#ffd700" />
-      <Heart isActive={isFavorite} onClick={handleFavoriteChange} className="heart" />
+      <Heart isActive={isFavorite === 'true'} onClick={handleFavoriteChange} className="heart" />
     </div>
   );
 };
