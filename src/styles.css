@@ -17,11 +17,19 @@ body {
   }
 
   .heart-filter {
-    width: 5%;
+    width: 14px;
+  }
+
+  .heart-filter-line {
+    font-weight: 100;
+    font-family: Roboto, sans-serif;
+    padding-top: 10px;
   }
 
   .top-menu {
     float: left;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #cecece;
   }
 
   .logo {
@@ -75,10 +83,12 @@ body {
   }
 
   .todo-search {
-    height: 1.5rem;
+    height: 3.5rem;
     border-radius: 5px solid;
-    width: 60%;
-    caret-color: orange;
+    width: 100%;
+    font-size: 40px;
+    font-weight: 100;
+    font-family: Roboto, sans-serif;
   }
   
   .todo-search::placeholder {

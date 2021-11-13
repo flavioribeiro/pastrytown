@@ -45,14 +45,12 @@ const BeerList = () => {
   return (
     <div className="todo-list">
       <div className='top-menu'>
-        <input
-          className="todo-search"
-          type="text"
-          value={searchText}
-          placeholder="Search"
-          onChange={searchTextChanged}
-        />
-        Show Only my <Heart isActive={listingFavorites} onClick={handleFavoriteChange} className="heart-filter" /> beers.
+        <div>
+          <input className="todo-search" type="text" value={searchText} placeholder="Search" onChange={searchTextChanged} />
+        </div>
+        <div className="heart-filter-line">
+          Show Only my <Heart isActive={listingFavorites} onClick={handleFavoriteChange} className="heart-filter" /> beers.
+        </div>
       </div>
       {beers}
     </div>
